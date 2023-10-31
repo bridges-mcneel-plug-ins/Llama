@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Title>Llama</Title>
+		<Authors>École des Ponts ParisTech</Authors>
+		<Company>École des Ponts ParisTech</Company>
+
+		<Description>Grasshopper library exposing the Guided Projection Algorithm implementation from BRIDGES framework.</Description>
+
+		<TargetFramework>net4.8</TargetFramework>
+		<OutputType>Library</OutputType>
+
+		<RepositoryUrl>https://github.com/bridges-mcneel-plug-ins/Llama</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<IncludeSymbols>true</IncludeSymbols>
+
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="Copy &quot;$(TargetPath)&quot; &quot;$(TargetDir)$(ProjectName).gha&quot;&#xD;&#xA;Erase &quot;$(TargetPath)&quot;&#xD;&#xA;Erase &quot;$(TargetDir)Grasshopper.dll&quot;&#xD;&#xA;" />
+	</Target>
+
+	<ItemGroup>
+		<PackageReference Include="BRIDGES.McNeel.Grasshopper-Dev" Version="0.1.4-beta" />
+	</ItemGroup>
+
+</Project>

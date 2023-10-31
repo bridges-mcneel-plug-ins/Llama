@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Llama": {
+      "commandName": "Project"
+    },
+    "Debug with Rhino7": {
+      "commandName": "Executable",
+      "executablePath": "C:\\\\Program Files\\\\Rhino 7\\\\System\\\\Rhino.exe"
+    }
+  }
+}
