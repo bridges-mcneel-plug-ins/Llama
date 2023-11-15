@@ -67,8 +67,8 @@ namespace Llama.Energies.Face
 
             /******************** Get Inputs ********************/
 
-            if (!DA.GetData(0, ref points)) { return; };
-            if (!DA.GetData(1, ref variables)) { return; };
+            if (!DA.GetDataList(0, points)) { return; };
+            if (!DA.GetDataList(1, variables)) { return; };
 
             if (!DA.GetData(2, ref weight)) { weight = 1d; };
 
@@ -150,11 +150,11 @@ namespace Llama.Energies.Face
             // ----- Define Ki ----- //
 
             double d_BC = ((pointB.X - pointA.X) * (pointC.Y - pointA.Y)) - ((pointB.Y - pointA.Y) * (pointC.X - pointA.X));
-            double d_BD = ((pointB.X - pointA.X) * (pointD.Y - pointA.Y)) - ((pointB.Y - pointA.Y) * (pointD.X - pointA.X));
+            double d_DB = ((pointD.X - pointA.X) * (pointB.Y - pointA.Y)) - ((pointD.Y - pointA.Y) * (pointB.X - pointA.X));
             double d_CD = ((pointC.X - pointA.X) * (pointD.Y - pointA.Y)) - ((pointC.Y - pointA.Y) * (pointD.X - pointA.X));
 
             int[] rowIndices = new int[4] { 0, 1, 2, 3};
-            double[] values = new double[4] { -(d_BC + d_BD + d_CD), d_CD, d_BD, d_BC };
+            double[] values = new double[4] { -(d_BC + d_DB + d_CD), d_CD, d_DB, d_BC };
 
             LocalKi = new LinAlg_Vect.SparseVector(4, rowIndices, values);
 

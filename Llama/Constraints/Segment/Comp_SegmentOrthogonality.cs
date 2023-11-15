@@ -93,11 +93,11 @@ namespace Llama.Constraints.Segment
             GP.Variable[] variables = new GP.Variable[3] { start.Value, end.Value, normal.Value };
 
             GP.Constraint constraint = new GP.Constraint(constraintType, variables, weight);
-            Types.Constraints.Gh_Constraint gh_Energy = new Types.Constraints.Gh_Constraint(constraint);
+            Types.Constraints.Gh_Constraint gh_Constraint = new Types.Constraints.Gh_Constraint(constraint);
 
             /******************** Set Output ********************/
 
-            DA.SetData(0, gh_Energy);
+            DA.SetData(0, gh_Constraint);
         }
 
         #endregion

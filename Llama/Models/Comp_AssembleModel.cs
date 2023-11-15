@@ -196,11 +196,6 @@ namespace Llama.Models
                 }
 
                 gpa.AddConstraint(gh_Constraint.Value.Type, newVariables, gh_Constraint.Value.Weight);
-
-                // if (!isConstraintAdded)
-                // {
-                //     this.AddRuntimeMessage(GH_Kernel.GH_RuntimeMessageLevel.Warning, $"This constraint is a duplicate, it was already added to the model.");
-                // }
             }
 
 

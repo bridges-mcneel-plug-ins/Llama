@@ -60,14 +60,14 @@ namespace Llama.Constraints.Vector
         {
             // ----- Initialisation ----- //
 
-            Types_Var.Gh_Variable vector = null;
+            Types_Var.Gh_Variable variable = null;
             double length = 0d;
 
             double weight = 0d;
 
             // ----- Get Inputs ----- //
 
-            if (!DA.GetData(0, ref vector)) { return; };
+            if (!DA.GetData(0, ref variable)) { return; };
             if (!DA.GetData(1, ref length)) { return; };
 
             if (!DA.GetData(2, ref weight)) { weight = 1d; };
@@ -76,8 +76,8 @@ namespace Llama.Constraints.Vector
 
             /* To Do : Verify that start, end and vector have the same dimentsion. */
 
-            int dimension = vector.Value.Dimension;
-            GP.Variable[] variables = new GP.Variable[1] { vector.Value };
+            int dimension = variable.Value.Dimension;
+            GP.Variable[] variables = new GP.Variable[1] { variable.Value };
 
             GP.QuadraticConstraintTypes.VectorLength constraintType = new GP.QuadraticConstraintTypes.VectorLength(length, dimension);
             GP.Constraint constraint = new GP.Constraint(constraintType, variables, weight);
