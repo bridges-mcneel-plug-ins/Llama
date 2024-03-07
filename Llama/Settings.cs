@@ -13,7 +13,8 @@ namespace Llama
         Variables = 1,
         Energies = 2,
         Constraints = 3,
-        Solvers = 4
+        Solvers = 4,
+        Helpers = 5
     }
 
     /// <summary>
